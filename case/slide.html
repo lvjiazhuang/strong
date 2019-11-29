@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滑动效果</title>
+		<style type="text/css">
+			*{
+				margin:0; padding:0;
+			}
+			.tips{
+				line-height: 3.5;
+				font-size: 20px;
+				text-align: center;
+			}
+			ul{
+				display:flex;
+				flex-flow:row nowrap;
+				justify-content:center;
+			}
+			li{
+				list-style:none;
+				text-align:center;
+			}
+			li label{
+				display:block;
+				padding:15px 15px;
+				margin:0 10px;
+				background-color:#ccc;
+				text-decoration:none;
+				color:#fff;
+				cursor: pointer;
+			}
+			.radio-box{
+				height:500px;
+				overflow:hidden;
+				position:relative;
+			}
+			.item,
+			.item img{
+				width:100%;
+			}
+			.item{
+				position:absolute;
+				left:0;
+				top:0;
+				transition:1s;
+				opacity:0;
+				transform:translateX(100%);
+			}
+			[type="radio"]{
+				/*opacity:0;*/
+				display:none;
+			}
+			[type="radio"]:checked + .item{
+				opacity:1;
+				transform:translateX(0);
+			}
+			[type="radio"]:checked + .item p{
+				top:150px;
+			}
+			.item img{
+				position:absolute;
+				left:0;
+				top:0;
+			}
+			.item p{
+				position:absolute;
+				left:50%;
+				top:1000px;
+				transform:translate(-50%,-50%);
+				transition:1s 1s;
+				font-size:40px;
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><label for="item1">第一</label></li>
+			<li><label for="item2">第二</label></li>
+			<li><label for="item3">第三</label></li>
+			<li><label for="item4">第四</label></li>
+		</ul>
+		<div class="radio-box">
+			<input type="radio" name="radio" id="item1" checked />
+			<div class="item">
+				<img src="../image/slide1.jpg"/>
+				<p>我是第一段文字</p>
+			</div>
+			
+			<input type="radio" name="radio" id="item2" />
+			<div class="item">
+				<img src="../image/slide2.jpg"/>
+				<p>我是第二段文字</p>
+			</div>
+			
+			<input type="radio" name="radio" id="item3" />
+			<div class="item">
+				<img src="../image/slide3.jpg"/>
+				<p>我是第三段文字</p>
+			</div>
+			
+			<input type="radio" name="radio" id="item4" />
+			<div class="item">
+				<img src="../image/slide4.jpg"/>
+				<p>我是第四段文字</p>
+			</div>
+		</div>
+		<p class="tips">点击按钮实现图片切换</p>
+	</body>
+</html>
